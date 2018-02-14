@@ -1,0 +1,281 @@
+2017-06-27 12:42:33.504 [main] INFO  a01010327.Bcmc - program started at: 2017-06-27T12:42:33.431
+2017-06-27 12:42:33.508 [main] DEBUG a01010327.database.Database - Loading database properties from properties file: db.properties
+2017-06-27 12:42:33.511 [main] INFO  a01010327.database.DatabaseController - database controller initialized
+2017-06-27 12:42:33.512 [main] INFO  a01010327.io.CustomerReader - started reading Customer's data from file: customers.dat
+2017-06-27 12:42:33.532 [main] DEBUG a01010327.io.CustomerReader - length of Customer's map, read from file, is: 5
+2017-06-27 12:42:33.533 [main] INFO  a01010327.io.CustomerReader - finished reading data from file and generating Customer's map.
+2017-06-27 12:42:33.533 [main] DEBUG a01010327.io.CustomerReader - closed the Scanner.
+2017-06-27 12:42:33.534 [main] INFO  a01010327.io.MotorcycleReader - started reading Motorcycle's data from file: motorcycles.dat
+2017-06-27 12:42:33.536 [main] DEBUG a01010327.io.MotorcycleReader - number of Motorcycles read from file, is: 7
+2017-06-27 12:42:33.536 [main] INFO  a01010327.io.MotorcycleReader - finished reading Motorcycle data.
+2017-06-27 12:42:33.537 [main] DEBUG a01010327.io.MotorcycleReader - closed the Scanner.
+2017-06-27 12:42:33.537 [main] INFO  a01010327.io.InventoryReader - started reading Inventory data from file: inventory.dat
+2017-06-27 12:42:33.548 [main] DEBUG a01010327.io.InventoryReader - number of Inventory items read from file, is: 99
+2017-06-27 12:42:33.548 [main] INFO  a01010327.io.InventoryReader - finished reading Inventory data.
+2017-06-27 12:42:33.548 [main] DEBUG a01010327.io.InventoryReader - closed the Scanner.
+2017-06-27 12:42:33.716 [main] INFO  a01010327.database.Database - Driver loaded
+2017-06-27 12:42:34.164 [main] INFO  a01010327.database.Database - Database connected
+2017-06-27 12:42:34.166 [main] DEBUG a01010327.database.dao.Dao - executing: DROP TABLE Motorcycle
+2017-06-27 12:42:34.414 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.415 [main] DEBUG a01010327.database.dao.Dao - executing: DROP TABLE Customer
+2017-06-27 12:42:34.449 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.450 [main] DEBUG a01010327.database.dao.Dao - executing: DROP TABLE Inventory
+2017-06-27 12:42:34.484 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.577 [main] DEBUG a01010327.database.dao.Dao - executing: CREATE TABLE Customer (customerId INTEGER, firstName VARCHAR(20), lastName VARCHAR(20), streetName VARCHAR(25), cityName VARCHAR(20), postalCode CHAR(7), phone CHAR(14), emailAddress VARCHAR(30), dateJoined TIMESTAMP, PRIMARY KEY (customerId) )
+2017-06-27 12:42:34.633 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.654 [main] DEBUG a01010327.database.dao.Dao - executing: CREATE TABLE Motorcycle (motorcycleId VARCHAR(6), make VARCHAR(25), model VARCHAR(25), yearMade INTEGER, serialNumber CHAR(6), mileage INTEGER, ownerId INTEGER, PRIMARY KEY (motorcycleId), FOREIGN KEY (ownerId) REFERENCES Customer(customerId))
+2017-06-27 12:42:34.697 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.713 [main] DEBUG a01010327.database.dao.Dao - executing: CREATE TABLE Inventory (motorcycleId VARCHAR(30), description VARCHAR(35), partNumber VARCHAR(15), price DECIMAL(10,2), quantity INTEGER, PRIMARY KEY(motorcycleId, partNumber))
+2017-06-27 12:42:34.727 [main] DEBUG a01010327.database.dao.Dao - 0 rows affected
+2017-06-27 12:42:34.727 [main] DEBUG a01010327.database.dao.CustomerDao - inserting customers into database
+2017-06-27 12:42:34.728 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Customer VALUES( 2540, 'Laurie', 'Nash',  '2816 Commercial Dr', 'Vancouver', 'V5N 4C6', '(604) 876-0182', 'laurieeenash@modern.com', '2014-08-28 12:42:34.727' )
+2017-06-27 12:42:34.796 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.796 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Customer VALUES( 4653, 'Jeanette', 'Price',  '21000 Westminster Hwy', 'Richmond', 'V6V 2S9', '(604) 276-2552', 'priceizrite@pacific.com', '2015-10-03 12:42:34.796' )
+2017-06-27 12:42:34.803 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.804 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Customer VALUES( 3947, 'Mark', 'Chan',  '3766 E 1st Ave', 'Burnaby', 'V5C 3V9', '(604) 293-1022', 'mchan@hcenter.com', '2010-04-01 12:42:34.804' )
+2017-06-27 12:42:34.810 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.811 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Customer VALUES( 3997, 'Fred', 'Fish',  '5707 Sidley St', 'Burnaby', 'V5J 5E6', '(604) 433-5004', 'fredfish@imperial.net', '2008-03-22 12:42:34.811' )
+2017-06-27 12:42:34.818 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.819 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Customer VALUES( 1824, 'Conrad', 'Washington',  '13479 King George Blvd', 'Surrey', 'V3T 2T8', '(604) 588-4988', 'cwash@daytona.net', '2011-07-12 12:42:34.819' )
+2017-06-27 12:42:34.826 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.826 [main] DEBUG a01010327.database.DatabaseController - inserted all customer data to database
+2017-06-27 12:42:34.826 [main] DEBUG a01010327.database.dao.MotorcycleDao - inserting motorcycles into database
+2017-06-27 12:42:34.827 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('32466', 'Yamaha', 'Bolt',2015, 'B20000', 751, 1824)
+2017-06-27 12:42:34.842 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.843 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('30618', 'Honda', 'CB1100',2015, 'C30000', 1106, 2540)
+2017-06-27 12:42:34.850 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.850 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('21711', 'Triumph', 'Tiger',2012, 'A10000', 22683, 4653)
+2017-06-27 12:42:34.856 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.856 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('31397', 'Suzuki', 'V-Strom 1000',2007, 'F60000', 31680, 3997)
+2017-06-27 12:42:34.862 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.863 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('37231', 'Ducati', 'Monster 696',2009, 'G70000', 32000, 2540)
+2017-06-27 12:42:34.869 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.870 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('32212', 'Harley Davidson', 'Sportster',2002, 'E50000', 36000, 1824)
+2017-06-27 12:42:34.877 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.878 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Motorcycle VALUES('43900', 'BMW', 'R75/5',1972, 'D40000', 63000, 3947)
+2017-06-27 12:42:34.884 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.885 [main] DEBUG a01010327.database.DatabaseController - inserted all motorcycle data to database
+2017-06-27 12:42:34.885 [main] DEBUG a01010327.database.dao.InventoryDao - inserting inventories into database
+2017-06-27 12:42:34.886 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'WOODRUFF KEY', '1272343243', 491.000000, 580)
+2017-06-27 12:42:34.893 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.894 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'SUPPORTING RING', '6141182903', 987.000000, 104)
+2017-06-27 12:42:34.953 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.954 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'SHEET METAL SCREW', '7119906189', 102.000000, 686)
+2017-06-27 12:42:34.959 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.960 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'SCREW PLUG', '1447687368', 272.000000, 135)
+2017-06-27 12:42:34.964 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.965 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'LAMP LENS', '3138534351', 1862.000000, 44)
+2017-06-27 12:42:34.970 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.970 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'ISA SCREW', '7129903807', 227.000000, 663)
+2017-06-27 12:42:34.975 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.975 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'ISA SCREW', '7129904700', 248.000000, 795)
+2017-06-27 12:42:34.981 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.981 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'HOSE RUNNING METER', '3547709426', 3556.000000, 18)
+2017-06-27 12:42:34.986 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.986 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'FUEL PUMP, ELECTRONIC', '6148523262', 19286.000000, 8)
+2017-06-27 12:42:34.990 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.991 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'FOOTREST, LEFT', '6717700913', 8031.000000, 13)
+2017-06-27 12:42:34.995 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:34.996 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'FILLISTER HEAD SCREW', '1117653180', 257.000000, 1134)
+2017-06-27 12:42:35.000 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.001 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'COLLAR BUSH', '6717700591', 1385.000000, 19)
+2017-06-27 12:42:35.005 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.005 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'CLUTCH LEVER', '32727705606', 9972.000000, 17)
+2017-06-27 12:42:35.009 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.010 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'BRACKET, GENERATOR REGULATOR', '1317690871', 2862.000000, 34)
+2017-06-27 12:42:35.014 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.015 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('BMW+R75/5', 'BALL PIN', '7147202359', 349.000000, 20)
+2017-06-27 12:42:35.019 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.019 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'STEERING DAMPER', '1427653149', 38809.000000, 5)
+2017-06-27 12:42:35.024 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.025 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'SELF-LOCKING HEX NUT', '32727680378', 378.000000, 238)
+2017-06-27 12:42:35.029 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.030 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'REPAIR KIT FOR JERK DAMPER', '7727711036', 10888.000000, 9)
+2017-06-27 12:42:35.033 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.034 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'PREFORMED SEAL', '1447687365', 816.000000, 66)
+2017-06-27 12:42:35.038 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.038 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'OVAL HEAD SCREW', '4117672808', 295.000000, 325)
+2017-06-27 12:42:35.042 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.042 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'ISA SCREW', '7129906038', 343.000000, 163)
+2017-06-27 12:42:35.046 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.047 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'ISA SCREW', '7129907375', 502.000000, 444)
+2017-06-27 12:42:35.051 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.051 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'FOOTPEG PLATE RIGHT', '6718534960', 31995.000000, 5)
+2017-06-27 12:42:35.055 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.055 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'CLUTCH LEVER ASSEMBLY, ADJUS', '32728523463', 19337.000000, 7)
+2017-06-27 12:42:35.060 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.060 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'CLAMP WITH MIRROR MOUNT', '32728533246', 3002.000000, 44)
+2017-06-27 12:42:35.065 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.065 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'BUSHING', '3417680761', 932.000000, 201)
+2017-06-27 12:42:35.069 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.069 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'BOWDEN CAB ADJUSTMENT SCREW', '32727678100', 1831.000000, 20)
+2017-06-27 12:42:35.073 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.074 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Ducati+Monster 696', 'BELTGUARD, TOP EXTERIOR', '7727686588', 2773.000000, 39)
+2017-06-27 12:42:35.078 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.078 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'OIL FILTER, BLACK', '1427719357', 1509.000000, 175)
+2017-06-27 12:42:35.082 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.082 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'ISA SCREW', '7129904261', 344.000000, 580)
+2017-06-27 12:42:35.087 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.087 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'HOSE CLAMP', '1731277848', 614.000000, 264)
+2017-06-27 12:42:35.091 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.091 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'HOSE', '7217686971', 779.000000, 279)
+2017-06-27 12:42:35.096 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.096 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'FEED PIPE', '6147708313', 4122.000000, 10)
+2017-06-27 12:42:35.101 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.101 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'BRACKET', '1427653150', 4095.000000, 48)
+2017-06-27 12:42:35.107 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.107 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'BINDING HEAD SCREW', '6627711971', 159.000000, 1038)
+2017-06-27 12:42:35.112 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.113 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Harley Davidson+Sportster', 'BELT PULLEY', '7727706466', 51292.000000, 1)
+2017-06-27 12:42:35.118 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.118 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'WASHER', '7119907030', 695.000000, 71)
+2017-06-27 12:42:35.123 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.123 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'VOLTAGE REGULATOR', '1312346550', 18876.000000, 8)
+2017-06-27 12:42:35.127 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.127 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'STOPPER', '6712330765', 803.000000, 84)
+2017-06-27 12:42:35.131 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.132 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'SLEEVE', '32727673990', 905.000000, 53)
+2017-06-27 12:42:35.136 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.136 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'RETAINER SPRING', '6717660163', 408.000000, 138)
+2017-06-27 12:42:35.142 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.142 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'NIPPLE', '1447687378', 3775.000000, 2)
+2017-06-27 12:42:35.146 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.146 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'ISA SCREW', '7129904261', 344.000000, 323)
+2017-06-27 12:42:35.150 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.150 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'HEX NUT', '7119904920', 237.000000, 465)
+2017-06-27 12:42:35.154 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.154 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'FOOTREST, RIGHT', '6717700914', 8031.000000, 1)
+2017-06-27 12:42:35.158 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.159 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'FLAT NUT', '6637659955', 245.000000, 583)
+2017-06-27 12:42:35.163 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.163 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'COUNTER NUT', '32727678101', 715.000000, 15)
+2017-06-27 12:42:35.167 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.167 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'BULB', '3217169203', 515.000000, 114)
+2017-06-27 12:42:35.170 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.171 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'BELT WHEEL, REAR', '7727678299', 56965.000000, 2)
+2017-06-27 12:42:35.175 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.175 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Honda+CB1100', 'BALANCE ROD WITH ROCKER', '1277702426', 66603.000000, 0)
+2017-06-27 12:42:35.178 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.179 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'TORX BOLT', '3007690404', 214.000000, 1465)
+2017-06-27 12:42:35.183 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.183 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'TOOTH BELT', '3838521719', 51012.000000, 3)
+2017-06-27 12:42:35.189 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.189 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'SPRING RING SHELL', '7127696377', 509.000000, 269)
+2017-06-27 12:42:35.194 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.194 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'SHIFT LEVER, SILVER', '3417689019', 8395.000000, 6)
+2017-06-27 12:42:35.199 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.199 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'SCREW CAP', '6116760285', 1031.000000, 114)
+2017-06-27 12:42:35.204 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.205 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'ROLL PIN', '1412343108', 744.000000, 114)
+2017-06-27 12:42:35.209 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.210 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'PIN', '6717668644', 1051.000000, 47)
+2017-06-27 12:42:35.215 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.216 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'O-RING', '1117694729', 172.000000, 297)
+2017-06-27 12:42:35.220 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.220 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'MICROSWITCH', '61317671111', 3642.000000, 24)
+2017-06-27 12:42:35.224 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.224 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'LAMP LENS', '3138534350', 1861.000000, 61)
+2017-06-27 12:42:35.228 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.229 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'ISA SCREW', '7129907374', 561.000000, 198)
+2017-06-27 12:42:35.235 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.235 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'GASKET', '6117677883', 1123.000000, 15)
+2017-06-27 12:42:35.240 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.241 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'FUEL PUMP UNIT WITH LEVER SE', '6147723935', 50435.000000, 1)
+2017-06-27 12:42:35.246 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.246 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'FOOTREST PLATE LEFT', '6718534959', 33118.000000, 7)
+2017-06-27 12:42:35.252 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.252 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'CONNECTION CABLE', '1127699594', 1631.000000, 26)
+2017-06-27 12:42:35.256 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.256 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'CONNECTING ROD BOLT', '1247688359', 1576.000000, 167)
+2017-06-27 12:42:35.260 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.260 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'CONNECTING ROD BEARING', '1247690500', 3275.000000, 73)
+2017-06-27 12:42:35.264 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.265 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Suzuki+V-Strom', 'BELTGUARD BOTTOM INT', '6628526813', 4152.000000, 6)
+2017-06-27 12:42:35.270 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.271 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'WASHER', '7727706469', 1985.000000, 27)
+2017-06-27 12:42:35.276 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.279 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'TURN INDICATOR', '3138534352', 7205.000000, 19)
+2017-06-27 12:42:35.285 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.285 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'SHIFT LEVER, SILVER', '3417688853', 16915.000000, 5)
+2017-06-27 12:42:35.291 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.291 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'SELECTOR ROD', '3418522956', 4778.000000, 21)
+2017-06-27 12:42:35.296 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.296 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'SCREW', '6147713360', 99.000000, 242)
+2017-06-27 12:42:35.300 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.301 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'RING', '1427677987', 351.000000, 291)
+2017-06-27 12:42:35.305 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.306 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'PLASTIC BUSH', '5417674080', 214.000000, 163)
+2017-06-27 12:42:35.311 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.311 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'ISA SCREW WITH WASHER', '7129905537', 268.000000, 281)
+2017-06-27 12:42:35.315 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.315 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'ISA SCREW', '7129905601', 353.000000, 935)
+2017-06-27 12:42:35.319 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.319 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'HEAT EXCHANGER, BLACK', '1538524136', 19502.000000, 1)
+2017-06-27 12:42:35.323 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.323 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'FILLISTER-HEAD SCREW', '32722333066', 314.000000, 248)
+2017-06-27 12:42:35.327 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.327 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'COUNTERSUNK HEAD SCREW', '32727673989', 534.000000, 262)
+2017-06-27 12:42:35.330 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.330 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'CONNECTING ROD WITH BUSHING', '1248542008', 17835.000000, 6)
+2017-06-27 12:42:35.334 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.334 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'CLIP NUT', '1127070202', 111.000000, 257)
+2017-06-27 12:42:35.337 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.338 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'BOLT', '1277722182', 8954.000000, 10)
+2017-06-27 12:42:35.341 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.341 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'BEARING SHELL', '1277690501', 4095.000000, 18)
+2017-06-27 12:42:35.348 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.348 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Triumph+Tiger', 'ASA-BOLT', '7129907050', 225.000000, 19)
+2017-06-27 12:42:35.353 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.353 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'WASHER', '7119904164', 295.000000, 380)
+2017-06-27 12:42:35.357 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.357 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'TURN INDICATOR', '3138534353', 7205.000000, 5)
+2017-06-27 12:42:35.361 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.362 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'TORX BOLT', '2317707433', 257.000000, 646)
+2017-06-27 12:42:35.365 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.365 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'STRAINER', '6147708314', 8028.000000, 5)
+2017-06-27 12:42:35.369 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.369 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'SLEEVE', '1427677988', 242.000000, 40)
+2017-06-27 12:42:35.372 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.372 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'SAFETY CLIP', '7119987611', 182.000000, 593)
+2017-06-27 12:42:35.377 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.378 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'O-RING', '1447687367', 218.000000, 830)
+2017-06-27 12:42:35.383 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.383 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'ISA SCREW', '7129905769', 263.000000, 523)
+2017-06-27 12:42:35.388 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.388 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'COVER FOR FUEL PUMP', '6147693055', 2864.000000, 36)
+2017-06-27 12:42:35.392 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.392 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'CONNECTING ROD BOLT', '1277688360', 1781.000000, 82)
+2017-06-27 12:42:35.396 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.396 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'COLLAR SCREW', '7727689584', 726.000000, 4)
+2017-06-27 12:42:35.399 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.400 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'CIRCLIP', '7119901545', 209.000000, 600)
+2017-06-27 12:42:35.403 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.403 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'BELTGUARD, BOTTOM EXT', '6628526814', 2564.000000, 59)
+2017-06-27 12:42:35.407 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.407 [main] DEBUG a01010327.database.dao.Dao - executing: INSERT INTO Inventory VALUES('Yamaha+Bolt', 'ASA-BOLT', '7129907050', 225.000000, 802)
+2017-06-27 12:42:35.410 [main] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:42:35.411 [main] DEBUG a01010327.database.DatabaseController - inserted all inventory data to database
+2017-06-27 12:42:35.491 [main] INFO  a01010327.Bcmc - program finished at: 2017-06-27T12:42:35.491
+2017-06-27 12:42:35.492 [main] INFO  a01010327.Bcmc - program duration: 2060 ms
+2017-06-27 12:42:50.560 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:07.607 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:14.880 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:22.843 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:28.602 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:35.165 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:43:44.526 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT DISTINCT motorcycleId FROM Inventory
+2017-06-27 12:43:50.679 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT DISTINCT motorcycleId FROM Inventory
+2017-06-27 12:43:52.327 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:44:03.544 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:44:07.650 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory WHERE motorcycleId='Ducati+Monster 696' AND partNumber='1427653149'
+2017-06-27 12:44:20.073 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: UPDATE Inventory SET motorcycleId='Ducati+Monster 696', description='STEERING DAMPER', partNumber='142765314900', price=38809.000000, quantity=50 WHERE motorcycleId='Ducati+Monster 696' AND partNumber='1427653149'
+2017-06-27 12:44:20.104 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - 1 rows affected
+2017-06-27 12:44:30.369 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT DISTINCT motorcycleId FROM Inventory
+2017-06-27 12:44:32.295 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:44:35.122 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory WHERE motorcycleId='Ducati+Monster 696' AND partNumber='142765314900'
+2017-06-27 12:44:45.027 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory
+2017-06-27 12:44:49.435 [AWT-EventQueue-0] DEBUG a01010327.database.dao.Dao - executing: SELECT * FROM Inventory WHERE motorcycleId='Ducati+Monster 696' AND partNumber='142765314900'
+2017-06-27 12:44:54.245 [AWT-EventQueue-0] ERROR a01010327.ui.EditInventoryDialog - For input string: "38809.00sdf"
+2017-06-27 12:44:57.746 [AWT-EventQueue-0] ERROR a01010327.ui.EditInventoryDialog - For input string: "38809.00sdf"
+2017-06-27 12:45:00.984 [AWT-EventQueue-0] ERROR a01010327.ui.EditInventoryDialog - For input string: "38809.00sdf"
+2017-06-27 12:45:04.704 [AWT-EventQueue-0] ERROR a01010327.ui.EditInventoryDialog - For input string: "38809.00sdf"
