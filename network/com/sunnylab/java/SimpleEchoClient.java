@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
+/*use this example with SimpleEchoServer or ThreadedEchoServer*/
 public class SimpleEchoClient {
 	public static void main(String[] args) {
 		System.out.println("Simple Echo Client");
