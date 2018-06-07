@@ -1,0 +1,7 @@
+In order to run this project, follow these steps:
+1) create a new libgdx project by running the setup jar file:
+https://github.com/libgdx/libgdx/wiki/Project-Setup-Gradle
+
+2) put the source code in the core folder.
+
+3) in the main project folder, run "gradlew desktop:run".
